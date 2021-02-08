@@ -10,11 +10,10 @@ class AuthService {
   }
 
   // auth change user stream
-  Stream<User> get user {
-    _auth.authStateChanges().listen((User user) {
-      print ('Stream' + user.toString());
-      return user;
-    });
+  Stream<EtiUser> get user {
+    return _auth.authStateChanges()
+      //.map((User user) => _userFromFirebaseUser(user));
+        .map(_userFromFirebaseUser);
   }
 
 
@@ -29,4 +28,15 @@ class AuthService {
       return null;
     }
   }
+
+  // sing out
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    }  catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+
 }
