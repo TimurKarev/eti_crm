@@ -1,4 +1,4 @@
-import 'package:eti_crm/screens/home/wrapper.dart';
+import 'package:eti_crm/screens/wrapper.dart';
 import 'package:flutter/material.dart';
 
 void main() {
