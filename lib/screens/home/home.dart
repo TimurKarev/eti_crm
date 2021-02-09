@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
               onPressed: () async {
                 await _auth.signOut();
               },
-            )
+            ),
           ],
         ),
       ),
