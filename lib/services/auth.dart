@@ -1,4 +1,5 @@
 import 'package:eti_crm/models/user.dart';
+import 'package:eti_crm/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -34,6 +35,7 @@ class AuthService {
           email: email,
           password: password
       );
+
       return _userFromFirebaseUser(result.user);
     } catch(e) {
       print(e.toString());
@@ -47,6 +49,7 @@ class AuthService {
           email: email,
           password: password
       );
+      //DatabaseService().createFirstTable();
       return _userFromFirebaseUser(result.user);
     } catch(e) {
       print(e.toString());

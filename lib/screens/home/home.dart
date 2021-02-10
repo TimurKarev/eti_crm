@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eti_crm/screens/home/chui_list.dart';
 import 'package:eti_crm/services/auth.dart';
+import 'package:eti_crm/services/database.dart';
 import 'package:flutter/material.dart';
 
 
@@ -25,6 +28,7 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+        body: ChuiList(),
       ),
     );
   }
