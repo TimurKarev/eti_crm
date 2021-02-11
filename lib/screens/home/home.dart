@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eti_crm/models/chui_loss_list_model.dart';
 import 'package:eti_crm/screens/home/chui_list.dart';
 import 'package:eti_crm/services/auth.dart';
-import 'package:eti_crm/services/database.dart';
+import 'package:eti_crm/services/firestore_database.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class Home extends StatelessWidget {
@@ -11,7 +13,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  StreamProvider<ChuiLossListModel>.value(
+      value: DatabaseService().chuiLossListModel,
+      child: Container(
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
@@ -29,6 +33,7 @@ class Home extends StatelessWidget {
           ],
         ),
         body: ChuiList(),
+      ),
       ),
     );
   }

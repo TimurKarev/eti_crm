@@ -1,5 +1,5 @@
 import 'package:eti_crm/models/user.dart';
-import 'package:eti_crm/services/database.dart';
+import 'package:eti_crm/services/firestore_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {

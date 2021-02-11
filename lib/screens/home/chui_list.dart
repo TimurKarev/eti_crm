@@ -1,10 +1,10 @@
-import 'package:eti_crm/services/database.dart';
+import 'package:eti_crm/models/chui_loss_list_model.dart';
+import 'package:eti_crm/services/firestore_database.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 class ChuiList extends StatefulWidget {
-  Future<QuerySnapshot> chui =  DatabaseService().queryChuiLossList();
-
   @override
   _ChuiListState createState() => _ChuiListState();
 }
@@ -13,22 +13,13 @@ class _ChuiListState extends State<ChuiList> {
 
   @override
   Widget build(BuildContext context) {
-
-    widget.chui.then((value) {
-      QuerySnapshot qs = value;
-      if (qs.docs.length > 0) {
-        qs.docs.forEach((element) {
-          print(element.id);
-        });
-      }
-    });
-
-    return Container(
-        child: RaisedButton(
-            onPressed: () {
-            },
-            child: Text('Action')
-        )
-    );
+    ChuiLossListModel c = Provider.of<ChuiLossListModel>(context) ?? [];
+    //TODO: make check for empty value
+    return ListView.builder(
+          itemCount: c.getList().length,
+          itemBuilder: (context, index) {
+            return Text(c.getList()[index]);
+          }
+        );
   }
 }
