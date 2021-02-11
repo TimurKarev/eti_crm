@@ -40,11 +40,10 @@ class DatabaseService {
         .set(TableData.table_data);
   }
 
-  Future<QuerySnapshot> queryTest() async {
+  Future queryChuiLossList() async {
     return await chuiCasesCollection
         .doc('losses')
         .collection('losses_collection')
         .get();
-
     }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChuiList extends StatefulWidget {
-  Future<QuerySnapshot> chui =  DatabaseService().queryTest();
+  Future<QuerySnapshot> chui =  DatabaseService().queryChuiLossList();
 
   @override
   _ChuiListState createState() => _ChuiListState();
