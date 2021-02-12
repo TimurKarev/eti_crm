@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eti_crm/models/chui_loss_list_model.dart';
-import 'package:eti_crm/screens/home/chui_list.dart';
+import 'file:///C:/Users/User/Documents/Project/eti_crm/lib/screens/chui/chui_loss_list.dart';
 import 'package:eti_crm/services/auth.dart';
 import 'package:eti_crm/services/firestore_database.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 class Home extends StatelessWidget {
 
-  final AuthService _auth = AuthService();
+//  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
               icon: Icon(Icons.person),
               label: Text('logout'),
               onPressed: () async {
-                await _auth.signOut();
+                //await _auth.signOut();
               },
             ),
           ],
