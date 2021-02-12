@@ -13,9 +13,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  StreamProvider<ChuiLossListModel>.value(
-      value: DatabaseService().chuiLossListModel,
-      child: Container(
+    return  Container(
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
@@ -32,8 +30,7 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-        body: ChuiList(),
-      ),
+        body: ChuiLossList(),
       ),
     );
   }

@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
-class ChuiList extends StatefulWidget {
+class ChuiLossList extends StatefulWidget {
   @override
-  _ChuiListState createState() => _ChuiListState();
+  _ChuiLossListState createState() => _ChuiLossListState();
 }
 
-class _ChuiListState extends State<ChuiList> {
+class _ChuiLossListState extends State<ChuiLossList> {
 
   @override
   Widget build(BuildContext context) {
-    ChuiLossListModel c = Provider.of<ChuiLossListModel>(context) ?? [];
+
     //TODO: make check for empty value
     return ListView.builder(
-          itemCount: c.getList().length,
+          itemCount: 3,
           itemBuilder: (context, index) {
-            return Text(c.getList()[index]);
+            return Text('4');
           }
         );
   }

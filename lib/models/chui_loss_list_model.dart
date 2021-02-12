@@ -1,21 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:equatable/equatable.dart';
 
-class ChuiLossListModel {
-  final List<String> list;
-  ChuiLossListModel({this.list});
+class ChuiLossListItemModel extends Equatable {
+  final name;
+  final pathToTable;
+  ChuiLossListItemModel({this.name, this.pathToTable});
 
-  factory ChuiLossListModel.fromMap(
-      QuerySnapshot data) {
+  factory ChuiLossListItemModel.fromMap(
+                        Map<String, dynamic> data)  {
 
     if (data == null) {
       return null;
     }
-    List<String> _list = new List<String>();
-    data.docs.forEach((doc) {
-      _list.add(doc.data()['losses_case_name']);
-    });
-    return ChuiLossListModel(list: _list);
+
+    final name = data['losses_case_name'];
+    if (name == null) {
+      return null;
+    }
+
+  final pathToTable = data['path_to_loss_table'];
+
+  return ChuiLossListItemModel(name: name, pathToTable: pathToTable);
   }
 
-  List<String> getList() => list;
+  @override
+  // TODO: implement props
+  List<Object> get props => [name, pathToTable];
+
+  @override
+  bool get stringify => true;
 }
