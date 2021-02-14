@@ -24,11 +24,15 @@ class ChuiLossList extends ConsumerWidget {
             return ListTile(
               title: Text(stream.data.value[index].name),
               onTap: () {
-              },
-            );
-          }
-
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                  return ChuiLossTable(model: stream.data);
+                }),
+              );
+            },
+          );
+        }
       );
     }
   }

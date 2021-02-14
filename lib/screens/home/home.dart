@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eti_crm/models/chui_loss_list_model.dart';
-import 'file:///C:/Users/User/Documents/Project/eti_crm/lib/screens/chui/chui_loss_list.dart';
+import 'package:eti_crm/screens/chui/chui_loss_list.dart';
 import 'package:eti_crm/services/auth.dart';
 import 'package:eti_crm/services/firestore_database.dart';
 import 'package:flutter/material.dart';

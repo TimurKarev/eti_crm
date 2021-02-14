@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eti_crm/datas/table_data.dart';
 import 'package:eti_crm/models/chui_loss_list_model.dart';
+import 'package:eti_crm/models/chui_loss_table_model.dart';
 
 import 'firestore_path.dart';
-import 'firestore_srvice.dart';
+import 'firestore_service.dart';
 
 class ChuiLossListVM {
 
@@ -36,7 +37,12 @@ class ChuiLossListVM {
 
   Stream<List<ChuiLossListItemModel>> getChuiLossListModel() =>
       _service.collectionStream(
-        path: FirestorePath.chui_losses_collection(),
-        builder: (data) => ChuiLossListItemModel.fromMap(data),
+    path: FirestorePath.chui_losses_collection(),
+    builder: (data) => ChuiLossListItemModel.fromMap(data));
+
+  Stream<ChuiLossTableModel> getChuiLossTableModel(id) =>
+      _service.documentStream(
+          path: FirestorePath.chui_loss_table_document(id),
+          builder: (data) => ChuiLossTableModel.fromMap(data)
       );
 }
