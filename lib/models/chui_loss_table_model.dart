@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:eti_crm/datas/table_data.dart';
 
 class ChuiLossTableModel extends Equatable {
 
@@ -38,6 +39,10 @@ class ChuiLossTableModel extends Equatable {
       out_rows[r] = cells;
     }
     return ChuiLossTableModel(columns: cols, rows: out_rows);
+  }
+
+  Map<String, dynamic> createSample() {
+    return TableData.table_data;
   }
 
   @override
